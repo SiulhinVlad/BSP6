@@ -1,4 +1,4 @@
-# Radiology Report Summarization via Federated Multimodal Learning
+# Fine-Tuning an LLM with Federated Learning for Multimodal Radiology Report Summarization
 
 This repository contains code and results for fine-tuning transformer models (T5 and BART) to automatically summarize chest X-ray radiology reports, in three stages:
 
