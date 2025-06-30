@@ -278,7 +278,7 @@ for rnd in range(FED_ROUNDS):
     tokenizer.save_pretrained(round_dir / "tokenizer")
     feature_extractor.save_pretrained(round_dir / "feature_extractor")
 
-    print(f"  ✔ Saved checkpoint after Round {rnd} → {round_dir}")
+    print(f"Saved checkpoint after Round {rnd} → {round_dir}")
 
 
 final_dir = OUTPUT_ROOT / "federated_multimodal_bart_final_more_clients"
@@ -304,4 +304,4 @@ torch.save(
 tokenizer.save_pretrained(final_dir / "tokenizer")
 feature_extractor.save_pretrained(final_dir / "feature_extractor")
 
-print("✔ Done. Federated multimodal‐BART saved under:", final_dir.resolve())
+print("Federated multimodal‐BART saved under:", final_dir.resolve())
