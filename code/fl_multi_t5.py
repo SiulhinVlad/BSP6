@@ -193,7 +193,7 @@ client_indices = np.array_split(all_indices, NUM_CLIENTS)
 device = device 
 
 for rnd in range(FED_ROUNDS):
-    print(f"  → Round {rnd+1}/{FED_ROUNDS}")
+    print(f"Round {rnd+1}/{FED_ROUNDS}")
     client_states = []
 
     for c in range(NUM_CLIENTS):
