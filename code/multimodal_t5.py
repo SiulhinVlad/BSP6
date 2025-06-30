@@ -103,8 +103,8 @@ class MultimodalOpenIDataset(Dataset):
 
         if i < 2:
             print(f"[getitem {i}] uid={row.uid}, file={row.filename}")
-            print("  text ▶", txt[:60], "…")
-            print("  tgt  ▶", impression[:60], "…\n")
+            print("  text", txt[:60], "…")
+            print("  tgt", impression[:60], "…\n")
 
         return {
             "pixel_values":    pix,
@@ -208,4 +208,4 @@ model_to_save.save_pretrained(save_dir)
 tokenizer.save_pretrained(save_dir)
 feature_extractor.save_pretrained(save_dir)
 
-print("\n✅ Done. Model saved to ./multimodal_fed_model")
+print("\nModel saved to ./multimodal_fed_model")
