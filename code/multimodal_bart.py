@@ -35,31 +35,6 @@ random.seed(SEED)
 np.random.seed(SEED)
 torch.manual_seed(SEED)
 
-if not (TRAIN_CSV.exists() and VAL_CSV.exists() and TEST_CSV.exists()):
-    print("Splits not found in `new_splits/` – performing a one-time creation (seed=42).")
-    reports = pd.read_csv(REPORTS_CSV)[["uid", "findings", "impression"]]
-    projs   = pd.read_csv(PROJ_CSV)[["uid", "filename", "projection"]]
-    df      = projs.merge(reports, on="uid", how="inner")
-    print(f"[split] merged df has {len(df)} rows.")
-
-    uids = df.uid.unique()
-    train_uids, temp = train_test_split(uids, train_size=0.8, random_state=SEED)
-    val_uids, test_uids = train_test_split(
-        temp, test_size=0.1 / (0.1 + 0.1), random_state=SEED
-    )
-    splits = {"train": train_uids, "val": val_uids, "test": test_uids}
-
-    for name, ulist in splits.items():
-        sub = df[df.uid.isin(ulist)]
-        out_csv = OUT_SPLITS / f"{name}.csv"
-        sub.to_csv(out_csv, index=False)
-        print(f"[split] {name}: {len(sub)} rows → {out_csv}")
-    print()
-
-else:
-    print("Detected existing split files under `new_splits/`. Skipping re-split.")
-    print(f"  Using:\n    {TRAIN_CSV}\n    {VAL_CSV}\n    {TEST_CSV}\n")
-
 
 class MultimodalOpenIDataset(Dataset):
     def __init__(self, csv_path, img_dir, feature_extractor, tokenizer,
