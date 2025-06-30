@@ -90,7 +90,7 @@ trainer = Trainer(
 )
 
 def generate_and_compute(dataset, desc="test"):
-    print(f"Generating predictions for {desc} set...")
+    print(f"Generating predictions for {desc} set")
     predictions = trainer.predict(dataset)
     metrics = compute_metrics((predictions.predictions, predictions.label_ids))
     
@@ -101,7 +101,7 @@ def generate_and_compute(dataset, desc="test"):
     
     with open(f"{desc}_results.json", "w") as f:
         json.dump(metrics, f, indent=4)
-    print(f"\nSaved {desc} results to {desc}_results.json")
+    print(f"\n Results are saved.")
     
     return metrics
 
