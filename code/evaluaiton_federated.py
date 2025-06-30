@@ -289,7 +289,7 @@ def evaluate_multimodal_t5(
     save_path = model_dir / "t5_fed_eval_more_clients.json"
     with open(save_path, "w") as f:
         json.dump(out, f, indent=2)
-    print(f"\n✅ Saved Vision→T5 evaluation to {save_path}\n")
+    print(f"\nSaved Vision→T5 evaluation to {save_path}\n")
 
 
 def evaluate_multimodal_bart(
@@ -361,7 +361,7 @@ def evaluate_multimodal_bart(
     save_path = model_dir / "bart_fed_eval_more_clients.json"
     with open(save_path, "w") as f:
         json.dump(out, f, indent=2)
-    print(f"\n✅ Saved Vision→BART evaluation to {save_path}\n")
+    print(f"\nSaved Vision→BART evaluation to {save_path}\n")
 
 if __name__ == "__main__":
     T5_MODEL_DIR   = Path("./output_multimodal_fed/federated_multimodal_t5_final_more_clients")
