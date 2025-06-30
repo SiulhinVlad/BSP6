@@ -102,8 +102,8 @@ class MultimodalOpenIDataset(Dataset):
 
         if i < 2:
             print(f"[getitem {i}] uid={row['uid']}, file={row['filename']}")
-            print("  text ▶", txt[:60], "…")
-            print("  tgt  ▶", tgt[:60], "…\n")
+            print("  text", txt[:60], "…")
+            print("  tgt", tgt[:60], "…\n")
 
         return {
             "pixel_values":   pix,
@@ -190,7 +190,6 @@ all_indices = list(range(len(full_train_ds)))
 random.shuffle(all_indices)
 client_indices = np.array_split(all_indices, NUM_CLIENTS)
 
-print("▶ Federated training via FedAvg (multimodal‐T5)")
 device = device 
 
 for rnd in range(FED_ROUNDS):
@@ -274,7 +273,7 @@ for rnd in range(FED_ROUNDS):
     tokenizer.save_pretrained(round_dir / "tokenizer")
     feature_extractor.save_pretrained(round_dir / "feature_extractor")
 
-    print(f"  ✔ Saved checkpoint after Round {rnd} → {round_dir}")
+    print(f"Saved checkpoint after Round {rnd} → {round_dir}")
 
 
 final_dir = OUTPUT_ROOT / "federated_multimodal_t5_final_more_clients"
@@ -300,4 +299,4 @@ torch.save(
 tokenizer.save_pretrained(final_dir / "tokenizer")
 feature_extractor.save_pretrained(final_dir / "feature_extractor")
 
-print("✔ Done. Federated multimodal‐T5 saved under:", final_dir.resolve())
+print("Federated multimodal‐T5 saved under:", final_dir.resolve())
