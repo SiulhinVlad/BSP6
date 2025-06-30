@@ -23,7 +23,7 @@ def load_dataset(path):
     df = df[['findings', 'impression']].dropna()
     df = df[df['findings'].str.strip() != ""]
     df = df[df['impression'].str.strip() != ""]
-    df['findings'] = df['findings'].apply(lambda x: "summarize: " + x)  # <-- match T5
+    df['findings'] = df['findings'].apply(lambda x: "summarize: " + x)  
     return df
 
 def preprocess(batch):
