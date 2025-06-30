@@ -101,8 +101,8 @@ class MultimodalOpenIDataset(Dataset):
 
         if i < 2:
             print(f"[getitem {i}] uid={row['uid']}, file={row['filename']}")
-            print("  text ▶", txt[:60], "…")
-            print("  tgt  ▶", tgt[:60], "…\n")
+            print("  text", txt[:60], "…")
+            print("  tgt", tgt[:60], "…\n")
 
         return {
             "pixel_values":   pix,
@@ -194,9 +194,9 @@ random.shuffle(all_indices)
 client_indices = np.array_split(all_indices, NUM_CLIENTS)
 
 
-print("▶ Federated training via FedAvg (multimodal‐BART)")
+print("Federated training via FedAvg (multimodal‐BART)")
 for rnd in range(FED_ROUNDS):
-    print(f"  → Round {rnd+1}/{FED_ROUNDS}")
+    print(f"Round {rnd+1}/{FED_ROUNDS}")
     client_states = []
 
     for c in range(NUM_CLIENTS):
