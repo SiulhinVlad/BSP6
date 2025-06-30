@@ -64,7 +64,7 @@ def evaluate_t5_model(
         preds, references, lang="en", device=device
     )
 
-    print(f"\n=== T5 Federated Model Evaluation on TEST ({len(references)} examples) ===\n")
+    print(f"\nT5 Federated Model Evaluation on TEST ({len(references)} examples)\n")
     for k, v in rouge_scores.items():
         print(f"{k:10s}: {v:.4f}")
     print(f"{'BERT-P':10s}: {P.mean().item():.4f}")
@@ -137,7 +137,7 @@ def evaluate_bart_model(
         preds, references, lang="en", device=device
     )
 
-    print(f"\n=== BART Federated Model Evaluation on TEST ({len(references)} examples) ===\n")
+    print(f"\nBART Federated Model Evaluation on TEST ({len(references)} examples)\n")
     for k, v in rouge_scores.items():
         print(f"{k:10s}: {v:.4f}")
     print(f"{'BERT-P':10s}: {P.mean().item():.4f}")
